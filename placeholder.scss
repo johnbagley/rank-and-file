@@ -1,0 +1,133 @@
+@import 'bourbon/bourbon';
+$visual-grid: true;
+$visual-grid-opacity: .1;
+$visual-grid-color: blue;
+  
+@import 'neat/neat';
+@import 'bitters/bitters';  
+
+
+
+body {
+  @include background-image(url("/capitol_building.jpg"), linear-gradient(white 0, yellow 50%, transparent 50%));
+
+  @include outer-container;
+  background-color:whitesmoke;
+}
+
+header {
+  @include span-columns(12);
+}
+
+#main-img {
+  @include span-columns(10);
+  @include shift(1);  
+  border-style:solid;
+  border-width:3px;
+  border-color: black;
+  background-color: DimGray;
+  padding: 25px;
+  shadow: 5px;
+}
+
+#member-pic{
+  @include span_columns(3); 
+  border-style:solid;
+  border-width:1px;
+}
+
+.toggle {
+  @include span-columns(9);
+  @include shift(3);
+  height: 25px;
+  border-style:solid;
+  border-width:1px;
+  text-align:center;
+  background-color:silver;
+
+  li {
+  display: inline;
+  margin: 0 10px;
+  font-size: 14px;
+  }
+}
+
+
+#result {
+
+  img {
+    @include span_columns(3);
+    background-color: white;
+  }
+
+  ul {
+    @include span_columns(9);
+
+    li.block {
+      @include span-columns(6);  
+      @include omega(2n);
+      @include pad();
+      border-style:solid;
+      border-width:1px;
+      height:200px;
+     
+    } 
+  }
+}
+
+#graph {
+  @include span_columns(9);
+}
+#search {
+  @include span_columns(10);
+  padding-top: 25px;
+}
+
+
+#one-c{
+  @include span_columns(1); 
+}
+
+#two-c{
+  @include span_columns(2); 
+}
+
+#three-c{
+  @include span_columns(3); 
+}
+
+#four-c{
+  @include span_columns(4); 
+}
+
+#five-c{
+  @include span_columns(5);
+}
+
+#six-c{
+  @include span_columns(6);
+}
+
+#seven-c{
+  @include span_columns(7);
+}
+
+#eight-c{
+  @include span_columns(8);
+}
+
+#nine-c{
+  @include span_columns(9);
+}
+
+#ten-c{
+  @include span_columns(10);
+}
+
+#eleven-c{
+  @include span_columns(11);
+}
+#twelve-c{
+  @include span_columns(12);
+}
+

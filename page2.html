@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Rank and File</title>
+    <link rel="stylesheet" type="text/css" href="public/application.css">  
+  </head>
+
+  <body>
+    <div class="results" id="wrapper">
+      <h1>
+        <a href="index.html">LOGO</a>
+      </h1>
+
+      <div class="results" id="search">
+        <form style="background-color:red;">
+          <input type="text" placeholder="Elizabeth Warren"> 
+          <input type="submit" value="Search">
+        </form>
+      </div>
+      
+      <div class="results" id="toggle">
+        <ul style="background-color:green;">
+          <li><a href="">PARTY</a></li>
+          <li><a href="">HOUSE</a></li>
+          <li><a href="">SENATE</a></li>
+          <li><a href="">COMMITTEE</a></li>
+          <li><a href="">DISTRICT</a></li>
+        </ul>
+      </div>
+      <div class="results" id="result" style="background-color:yellow;">
+        <div class="results" id="member-pic">
+          <img src="Warren.jpg" alt="MEMBER PICTURE">
+          <p><strong>Elizabeth Warren (D)
+          <p>Senator: First Year
+          <p>Salary: $174,000</strong></p>
+        </div>
+        <div class="results" id="graphs">
+          <ul>
+          <li class="block"><a href="http://beta.congress.gov/member/elizabeth-warren/2182?q=%7B%22sponsorship%22%3A%22Sponsored+Legislation%22%2C%22type%22%3A%22bills%22%7D"><img src="bills_sponsored.png" alt="GRAPH OF BILLS SPONSORED"></a></li>
+
+          <li class="block"><a href="http://beta.congress.gov/member/elizabeth-warren/2182?q=%7B%22sponsorship%22%3A%22Cosponsored+Legislation%22%2C%22type%22%3A%22bills%22%7D"><img src="bills_co_sponsored.png" alt="GRAPH OF BILLS CO-SPONSORED"></a></li>
+            
+          <li class="block"><a href="http://beta.congress.gov/member/elizabeth-warren/2182?q=%7B%22type%22%3A%22amendments%22%2C%22sponsorship%22%3A%22Sponsored+Legislation%22%7D"><img src="amendments_sponsored.png" alt="GRAPH OF AMENDMENTS SPONSORED"></a></li>
+            
+          <li class="block"><img src="became_law.png" alt="GRAPH OF BILLS PASSED"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>
