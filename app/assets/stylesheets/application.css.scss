@@ -1,6 +1,21 @@
-@import 'bourbon/bourbon';
-@import 'neat/neat';
-@import 'bitters/bitters';
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_self
+ */
+
+@import "bourbon";
+@import "bitters/bitters";
+@import "neat";
 
 .results {
   background-color:white;
@@ -51,7 +66,10 @@
     @include clearfix;
     @include span-columns(9);
   }
+  
+  
 }
+
 
 #wrapper {
   @include clearfix;
@@ -161,51 +179,3 @@ body {
     } 
   }
 }
-
-#one-c{
-  @include span_columns(1); 
-}
-
-#two-c{
-  @include span_columns(2); 
-}
-
-#three-c{
-  @include span_columns(3); 
-}
-
-#four-c{
-  @include span_columns(4); 
-}
-
-#five-c{
-  @include span_columns(5);
-}
-
-#six-c{
-  @include span_columns(6);
-}
-
-#seven-c{
-  @include span_columns(7);
-}
-
-#eight-c{
-  @include span_columns(8);
-}
-
-#nine-c{
-  @include span_columns(9);
-}
-
-#ten-c{
-  @include span_columns(10);
-}
-
-#eleven-c{
-  @include span_columns(11);
-}
-#twelve-c{
-  @include span_columns(12);
-}
-
