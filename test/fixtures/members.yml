@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  house: MyString
+  state: MyString
+  district: MyString
+  tenure: MyString
+  salary: MyString
+  party: MyString
+
+two:
+  name: MyString
+  house: MyString
+  state: MyString
+  district: MyString
+  tenure: MyString
+  salary: MyString
+  party: MyString

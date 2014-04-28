@@ -1,0 +1,23 @@
+<div id="wrapper">
+  <div id="logo">
+    <h1>LOGO  See how your elected officials compare to the average.</h1>
+  </div>
+
+  <div id="search">
+    <%= form_for(@member) do |form| %>
+      <%= form.text_field :name, placeholder: 'Search for  Member' %>
+      <%= form.submit 'Search' %>
+    <% end %>
+  </div>
+
+  <div id="blurb">
+    <p class="centered">
+    Find out if your elected officials have been doing more, or less, than the average for a member with the same experience.  Simply search by name, and view the information.
+    </p>
+  </div>
+
+  <div id='main-img'>
+  <%= image_tag "mocks/screenshot.png", alt:"SCREENSHOT OF SITE AFTER SEARCHING" %>
+  </div>
+
+</div>
