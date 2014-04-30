@@ -66,10 +66,7 @@
     @include clearfix;
     @include span-columns(9);
   }
-  
-  
 }
-
 
 #wrapper {
   @include clearfix;
@@ -82,7 +79,7 @@
 body {
   @include outer-container;
   @include clearfix;
-  background-image:url("../mock_images/chamber.jpg");
+  background-image:url("mocks/chamber.jpg");
   box-shadow: 0px 0px 25px black;
   background-position: absolute;
   bottom: 5px;
@@ -135,7 +132,7 @@ body {
   text-align:center;
   background-color:silver;
     a:link {
-      
+
       color: black;
     }
     a:visited {
@@ -144,7 +141,7 @@ body {
     a:hover {
       color: black;
       font-weight: bold;
-    } 
+    }
 
   li {
   display: inline;
@@ -165,9 +162,9 @@ body {
     @include span_columns(9);
 
     li.block {
-      @include span-columns(6);  
+      @include span-columns(6);
       @include omega(2n);
-      
+
       border-style:solid;
       border-width:1px;
       height:250px;
@@ -176,6 +173,6 @@ body {
         @include span-columns(12);
         height: 250px;
       }
-    } 
+    }
   }
 }
