@@ -1,11 +1,15 @@
 class SearchResultsController < ApplicationController
-  layout false
 
   def show
     @member_search_result = member_name
+    @member_photo = member_photo
   end
 
   private
+
+  def member_photo
+    api_response["results"][0]["bioguide_id"]
+  end
 
   def search_for_member_name
     last_name = member.name
