@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 gem 'better_errors'
 gem 'binding_of_caller'
+gem 'httparty'
+gem 'json'
 gem 'rails', '4.1.0.rc2'
 gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.2'

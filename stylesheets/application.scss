@@ -64,7 +64,7 @@
 body {
   @include outer-container;
   @include clearfix;
-  background-image:url("../mock_images/chamber.jpg");
+  background-image:url("mocks/chamber.jpg");
   box-shadow: 0px 0px 25px black;
   background-position: absolute;
   bottom: 5px;
@@ -161,51 +161,3 @@ body {
     } 
   }
 }
-
-#one-c{
-  @include span_columns(1); 
-}
-
-#two-c{
-  @include span_columns(2); 
-}
-
-#three-c{
-  @include span_columns(3); 
-}
-
-#four-c{
-  @include span_columns(4); 
-}
-
-#five-c{
-  @include span_columns(5);
-}
-
-#six-c{
-  @include span_columns(6);
-}
-
-#seven-c{
-  @include span_columns(7);
-}
-
-#eight-c{
-  @include span_columns(8);
-}
-
-#nine-c{
-  @include span_columns(9);
-}
-
-#ten-c{
-  @include span_columns(10);
-}
-
-#eleven-c{
-  @include span_columns(11);
-}
-#twelve-c{
-  @include span_columns(12);
-}
-
