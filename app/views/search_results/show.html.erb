@@ -1,6 +1,10 @@
 <div id='wrapper'>
   <%= @member.name %>
-
+  <%= @member.party %>
+  <%= @member.state %>
+  <p><%= @member.chamber %>
+  <p>In office for <%= time_ago_in_words(@member.term_start) %></p>
+  <p>Current salary: <%= number_to_currency(@member.salary, precision: 0) %></p>
   <div id='result'>
     <%= image_tag("http://theunitedstates.io/images/congress/original/#{@member.photo}.jpg") %>
   </div>
