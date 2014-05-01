@@ -4,7 +4,7 @@
   </div>
 
   <div id="search">
-    <%= form_for(@member) do |form| %>
+    <%= form_for :query, url: search_results_path, method: :get do |form| %>
       <%= form.text_field :name, placeholder: 'Search for  Member' %>
       <%= form.submit 'Search' %>
     <% end %>
@@ -17,7 +17,7 @@
   </div>
 
   <div id='main-img'>
-  <%= image_tag "mocks/screenshot.png", alt:"SCREENSHOT OF SITE AFTER SEARCHING" %>
+    <%= image_tag "mocks/screenshot.png", alt:"SCREENSHOT OF SITE AFTER SEARCHING" %>
   </div>
 
 </div>

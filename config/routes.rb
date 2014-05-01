@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'welcomes#index'
 
   resources :members, only: [:new, :create]
-  resources :search_results, only: [:show]
+  resource :search_results, only: [:show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
