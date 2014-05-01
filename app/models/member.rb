@@ -5,6 +5,8 @@ class Member
     new(api_response)
   end
 
+  SALARY = 174_000
+
   def initialize(api_response)
     @api_response = api_response
   end
@@ -23,6 +25,26 @@ class Member
 
   def first_name
     @api_response["results"][0]["first_name"]
+  end
+
+  def term_start
+    @api_response["results"][0]["term_start"]
+  end
+
+  def party
+    '(' + @api_response["results"][0]["party"] + ')'
+  end
+
+  def chamber
+    @api_response["results"][0]["chamber"].to_s.capitalize
+  end
+
+  def salary
+    SALARY
+  end
+
+  def state
+    @api_response["results"][0]["state"]
   end
 
 end
