@@ -1,42 +1,36 @@
 class Member
 
   def self.find_by_name(name)
-    api_response = HTTParty.get("https://congress.api.sunlightfoundation.com/legislators?last_name=#{name}&apikey=acfdba04c94a4714b2c80d6c6a40329f")
-    new(api_response)
+    api_response = HTTParty.get("https://www.govtrack.us/api/v2/person?q=#{URI.encode(name)}")
+    govtrack_id = api_response["objects"][0]["id"]
+    govtrack_api_response = HTTParty.get("https://www.govtrack.us/api/v2/person/#{govtrack_id}")
+    new(govtrack_api_response)
   end
 
   SALARY = 174_000
 
-  def initialize(api_response)
-    @api_response = api_response
-  end
-
-  def photo
-    @api_response["results"][0]["bioguide_id"]
-  end
-
-  def name
-    first_name + " " + last_name
+  def initialize(govtrack_api_response)
+    @govtrack_api_response = govtrack_api_response
   end
 
   def last_name
-    @api_response["results"][0]["last_name"]
+    @govtrack_api_response["lastname"]
   end
 
   def first_name
-    @api_response["results"][0]["first_name"]
-  end
-
-  def term_start
-    @api_response["results"][0]["term_start"]
-  end
-
-  def party
-    '(' + @api_response["results"][0]["party"] + ')'
+    @govtrack_api_response["firstname"]
   end
 
   def chamber
-    @api_response["results"][0]["chamber"].to_s.capitalize
+    @govtrack_api_response["roles"].last["role_type"].capitalize
+  end
+
+  def full_name
+    first_name + " " + last_name
+  end
+
+  def party
+    @govtrack_api_response["roles"].last["party"].capitalize
   end
 
   def salary
@@ -44,7 +38,7 @@ class Member
   end
 
   def state
-    @api_response["results"][0]["state"]
+    @govtrack_api_response["roles"].last["state"]
   end
 
 end
