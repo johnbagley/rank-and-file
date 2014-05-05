@@ -1,13 +1,12 @@
 <div id='wrapper'>
   <%= @member.full_name %>
-  <%= @member.party %>
-  <%= @member.state %>
+  <%= "(#{@member.party} - #{@member.state})" %>
   <p><%= @member.chamber %></p>
-<%#   <p>In office for <%= time_ago_in_words(@member.term_start) %></p>
-<%#   <p>Current salary: <%= number_to_currency(@member.salary, precision: 0) %></p>
-<%#
+  <p>In office <%= time_ago_in_words(@member.tenure.min) %></p>
+  <p>Current salary: <%= number_to_currency(@member.salary, precision: 0) %></p>
+
   <div id='result'>
-    <%= image_tag("http://theunitedstates.io/images/congress/original/#{@member.photo}.jpg") %>
+    <%= image_tag("https://www.govtrack.us/data/photos/#{@member.photo}") %>
   </div>
 
 </div>

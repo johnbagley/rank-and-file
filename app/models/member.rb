@@ -4,13 +4,14 @@ class Member
     api_response = HTTParty.get("https://www.govtrack.us/api/v2/person?q=#{URI.encode(name)}")
     govtrack_id = api_response["objects"][0]["id"]
     govtrack_api_response = HTTParty.get("https://www.govtrack.us/api/v2/person/#{govtrack_id}")
-    new(govtrack_api_response)
+    new(govtrack_api_response, govtrack_id)
   end
 
   SALARY = 174_000
 
-  def initialize(govtrack_api_response)
+  def initialize(govtrack_api_response, govtrack_id)
     @govtrack_api_response = govtrack_api_response
+    @govtrack_id = govtrack_id
   end
 
   def last_name
@@ -33,12 +34,36 @@ class Member
     @govtrack_api_response["roles"].last["party"].capitalize
   end
 
+  def photo
+    "#{@govtrack_id}.jpeg"
+  end
+
   def salary
     SALARY
   end
 
   def state
     @govtrack_api_response["roles"].last["state"]
+  end
+
+  def tenure
+    current_roles.map do |role|
+      role["startdate"]
+    end
+  end
+
+  def current_roles
+    @govtrack_api_response["roles"].select do |role|
+      current_role_type?(role["role_type"])
+    end
+  end
+
+  def current_role_type?(role_type)
+    role_type == current_role_type
+  end
+
+  def current_role_type
+    @govtrack_api_response["roles"].last["role_type"]
   end
 
 end
