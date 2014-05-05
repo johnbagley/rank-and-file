@@ -168,6 +168,7 @@ body {
       border-style:solid;
       border-width:1px;
       height:250px;
+      padding: 10px 0;
 
       img {
         @include span-columns(12);

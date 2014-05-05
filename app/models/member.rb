@@ -34,8 +34,8 @@ class Member
     @govtrack_api_response["roles"].last["party"].capitalize
   end
 
-  def photo
-    "#{@govtrack_id}.jpeg"
+  def photo_url
+    "https://www.govtrack.us/data/photos/#{@govtrack_id}.jpeg"
   end
 
   def salary
