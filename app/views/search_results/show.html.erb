@@ -1,3 +1,37 @@
+<script type="text/javascript">
+$(function () {
+  $('#bills-sponsored-graph').highcharts({
+    chart: {
+      type: 'column'
+    },
+    credits: {
+      enabled: false
+    },
+    tooltip: {
+      enabled: false
+      },
+    title: {
+      text: 'Bills Sponsored'
+    },
+    xAxis: {
+      categories: ['']
+    },
+    yAxis: {
+      title: {
+        text: ''
+      }
+    },
+    series: [{
+      name: "<%= @member.full_name %>",
+        data: [22]
+    }, {
+      name: 'Average',
+        data: [5]
+    }]
+  });
+})
+</script>
+
 <div id='wrapper'>
   <%= @member.full_name %>
   <%= "(#{@member.party} - #{@member.state})" %>
@@ -12,20 +46,19 @@
 
     <div id="graphs">
       <ul>
-        <li class="block" id="bills_sponsored_graph">
-          <%= image_tag("mocks/bills_sponsored.png", alt: "GRAPH OF BILLS SPONSORED") %>
+        <li class="block" id="bills-sponsored-graph">
         </li>
 
         <li class="block">
-          <%= image_tag("mocks/bills_co_sponsored.png", alt: "GRAPH OF BILLS CO-SPONSORED") %>
+        <%= image_tag("mocks/bills_co_sponsored.png", alt: "GRAPH OF BILLS CO-SPONSORED") %>
         </li>
 
         <li class="block">
-          <%= image_tag("mocks/amendments_sponsored.png", alt: "GRAPH OF AMENDMENTS SPONSORED") %>
+        <%= image_tag("mocks/amendments_sponsored.png", alt: "GRAPH OF AMENDMENTS SPONSORED") %>
         </li>
 
         <li class="block">
-          <%= image_tag("mocks/became_law.png", alt: "GRAPH OF BILLS PASSED") %>
+        <%= image_tag("mocks/became_law.png", alt: "GRAPH OF BILLS PASSED") %>
         </li>
       </ul>
     </div>
