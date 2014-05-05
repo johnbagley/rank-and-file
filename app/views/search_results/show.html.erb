@@ -6,7 +6,28 @@
   <p>Current salary: <%= number_to_currency(@member.salary, precision: 0) %></p>
 
   <div id='result'>
-    <%= image_tag("https://www.govtrack.us/data/photos/#{@member.photo}") %>
-  </div>
+    <div>
+      <%= image_tag("https://www.govtrack.us/data/photos/#{@member.photo}") %>
+    </div>
 
+    <div id="graphs">
+      <ul>
+        <li class="block" id="bills_sponsored_graph">
+          <%= image_tag("mocks/bills_sponsored.png", alt: "GRAPH OF BILLS SPONSORED") %>
+        </li>
+
+        <li class="block">
+          <%= image_tag("mocks/bills_co_sponsored.png", alt: "GRAPH OF BILLS CO-SPONSORED") %>
+        </li>
+
+        <li class="block">
+          <%= image_tag("mocks/amendments_sponsored.png", alt: "GRAPH OF AMENDMENTS SPONSORED") %>
+        </li>
+
+        <li class="block">
+          <%= image_tag("mocks/became_law.png", alt: "GRAPH OF BILLS PASSED") %>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
