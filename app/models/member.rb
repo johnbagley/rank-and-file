@@ -59,7 +59,11 @@ class Member
   end
 
   def current_role_type?(role_type)
-    role_type == @govtrack_api_response["roles"].last["role_type"]
+    role_type == current_role_type
+  end
+
+  def current_role_type
+    @govtrack_api_response["roles"].last["role_type"]
   end
 
 end
