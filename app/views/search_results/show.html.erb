@@ -3,7 +3,7 @@
   <div id='result'>
     <div>
       <%= image_tag(@member.photo_url) %>
-      <%= @member.full_name %>
+      <span data-role="member-name"><%= @member.full_name %></span>
       <%= "(#{@member.party} - #{@member.state})" %>
       <p><%= @member.chamber %></p>
       <p>In office <%= time_ago_in_words(@member.tenure.min) %></p>
@@ -12,10 +12,10 @@
 
     <div id="graphs">
       <ul>
-        <li class="block" id="bills-sponsored-graph"> </li>
-        <li class="block" id="bills-cosponsored-graph"> </li>
-        <li class="block" id="amendments-sponsored-graph"> </li>
-        <li class="block" id="amendments-cosponsored-graph"> </li>
+        <li class="block" id="bills-sponsored-graph"></li>
+        <li class="block" id="bills-cosponsored-graph"></li>
+        <li class="block" id="amendments-sponsored-graph"></li>
+        <li class="block" id="amendments-cosponsored-graph"></li>
       </ul>
     </div>
   </div>

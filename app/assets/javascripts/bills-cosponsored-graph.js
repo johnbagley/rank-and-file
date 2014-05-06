@@ -1,4 +1,6 @@
 $(function () {
+  var memberName = $('[data-role=member-name]').text();
+
   $('#bills-cosponsored-graph').highcharts({
     chart: {
       type: 'column'
@@ -22,13 +24,13 @@ $(function () {
     },
     series: [
       {
-        name: "<%= @member.full_name %>",
-          data: [122]
+        name: memberName,
+        data: [122]
       },
       {
         name: 'Average',
-          data: [80]
+        data: [80]
       }
     ]
   });
-})
+});

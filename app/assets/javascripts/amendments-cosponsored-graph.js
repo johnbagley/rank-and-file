@@ -1,5 +1,7 @@
 $(function () {
+  var memberName = $('[data-role=member-name]').text();
   $('#amendments-cosponsored-graph').highcharts({
+
     chart: {
       type: 'column'
     },
@@ -22,7 +24,7 @@ $(function () {
     },
     series: [
       {
-        name: "<%= @member.full_name %>",
+        name: memberName,
           data: [232]
       },
       {
