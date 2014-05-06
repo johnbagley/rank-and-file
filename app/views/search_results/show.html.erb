@@ -2,7 +2,7 @@
 
   <div id='result'>
     <div>
-      <%= image_tag("https://www.govtrack.us/data/photos/#{@member.photo}") %>
+      <%= image_tag(@member.photo_url) %>
       <%= @member.full_name %>
       <%= "(#{@member.party} - #{@member.state})" %>
       <p><%= @member.chamber %></p>
