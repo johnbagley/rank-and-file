@@ -46,7 +46,7 @@ class Member
     @govtrack_api_response["roles"].last["state"]
   end
 
-  def tenure
+  def start_date
     current_roles.map do |role|
       role["startdate"]
     end
@@ -66,4 +66,16 @@ class Member
     @govtrack_api_response["roles"].last["role_type"]
   end
 
+  def year_of_start_date
+    start = Date.parse(start_date.min)
+    year_of_start_date = start.year
+  end
+
+  def senator_salary
+    SENATOR_SALARIES.each do |year, value|
+      if year_of_start_date == year
+        return value
+      end
+    end
+  end
 end
