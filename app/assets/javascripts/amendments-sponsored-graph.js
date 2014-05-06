@@ -20,12 +20,15 @@ $(function () {
         text: ''
       }
     },
-    series: [{
-      name: "<%= @member.full_name %>",
-        data: [50]
-    }, {
-      name: 'Average',
-        data: [78]
-    }]
+    series: [
+      {
+        name: "<%= @member.full_name %>",
+          data: [50]
+      },
+      {
+        name: 'Average',
+          data: [78]
+      }
+    ]
   });
 })

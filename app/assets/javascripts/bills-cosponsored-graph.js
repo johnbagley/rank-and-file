@@ -8,7 +8,7 @@ $(function () {
     },
     tooltip: {
       enabled: false
-      },
+    },
     title: {
       text: 'Bills Co-Sponsored'
     },
@@ -20,12 +20,15 @@ $(function () {
         text: ''
       }
     },
-    series: [{
-      name: "<%= @member.full_name %>",
-        data: [122]
-    }, {
-      name: 'Average',
-        data: [80]
-    }]
+    series: [
+      {
+        name: "<%= @member.full_name %>",
+          data: [122]
+      },
+      {
+        name: 'Average',
+          data: [80]
+      }
+    ]
   });
 })
