@@ -1,30 +1,21 @@
-<%= javascript_include_tag 'bills-sponsored' %>
-
 <div id='wrapper'>
-  <%= @member.full_name %>
-  <%= "(#{@member.party} - #{@member.state})" %>
-  <p><%= @member.chamber %></p>
-  <p>In office <%= time_ago_in_words(@member.tenure.min) %></p>
-  <p>Current salary: <%= number_to_currency(@member.salary, precision: 0) %></p>
 
   <div id='result'>
     <div>
       <%= image_tag("https://www.govtrack.us/data/photos/#{@member.photo}") %>
+      <%= @member.full_name %>
+      <%= "(#{@member.party} - #{@member.state})" %>
+      <p><%= @member.chamber %></p>
+      <p>In office <%= time_ago_in_words(@member.tenure.min) %></p>
+      <p>Current salary: <%= number_to_currency(@member.salary, precision: 0) %></p>
     </div>
 
     <div id="graphs">
       <ul>
-        <li class="block" id="bills-sponsored-graph">
-        </li>
-
-        <li class="block" id="bills-cosponsored-graph">
-        </li>
-
-        <li class="block" id="amendments-sponsored-graph">
-        </li>
-
-        <li class="block" id="amendments-cosponsored-graph">
-        </li>
+        <li class="block" id="bills-sponsored-graph"> </li>
+        <li class="block" id="bills-cosponsored-graph"> </li>
+        <li class="block" id="amendments-sponsored-graph"> </li>
+        <li class="block" id="amendments-cosponsored-graph"> </li>
       </ul>
     </div>
   </div>
