@@ -17,4 +17,3 @@
 //= require highcharts
 //= require highcharts/highcharts-more
 //= require_tree .
-//= require bills-sponsored.js
