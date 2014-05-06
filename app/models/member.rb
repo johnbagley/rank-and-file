@@ -46,7 +46,7 @@ class Member
     @govtrack_api_response["roles"].last["state"]
   end
 
-  def tenure
+  def start_date
     current_roles.map do |role|
       role["startdate"]
     end
@@ -66,4 +66,47 @@ class Member
     @govtrack_api_response["roles"].last["role_type"]
   end
 
+  def year_of_start_date
+    start = Date.parse(start_date.min)
+    start.year
+  end
+
+  def starting_senator_salary
+    starting_salary.to_a = SENATOR_SALARIES.select do |year, salary|
+      if year <= year_of_start_date
+        year
+      end
+    end
+    salary = starting_salary.max
+  end
+
+  def year_of_end_date
+    DateTime.now.year
+  end
+
+  def cumulative_senator_salary
+    sum = 0
+    last_year = year_of_start_date
+    last_salary = 22_500
+
+    SENATOR_SALARIES.each do |year, new_salary|
+      if year >= year_of_start_date
+        year_range = year - last_year
+        updated_salary = last_salary * year_range
+        sum += updated_salary
+      end
+
+      if year == year_of_end_date
+        sum += new_salary
+      end
+
+      if year > last_year
+        last_year = year
+      end
+
+      last_salary = new_salary
+    end
+
+    sum
+  end
 end
