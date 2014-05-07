@@ -84,7 +84,7 @@ class Member
   end
 
   def year_of_end_date
-    DateTime.now.year           
+    DateTime.now.year
   end
 
   def cumulative_senator_salary
