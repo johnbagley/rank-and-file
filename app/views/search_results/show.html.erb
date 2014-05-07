@@ -8,7 +8,7 @@
       <p><%= @member.chamber %></p>
       <p>In office <%= time_ago_in_words(@member.start_date.min) %></p>
       <p>Current salary: <%= number_to_currency(@member.salary, precision: 0) %></p>
-      <%= @member.senator_salary %>
+      <p>Starting salary: <%= @member.starting_senator_salary %>
     </div>
 
     <div id="graphs">

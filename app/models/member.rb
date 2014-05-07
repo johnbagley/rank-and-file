@@ -68,14 +68,18 @@ class Member
 
   def year_of_start_date
     start = Date.parse(start_date.min)
-    year_of_start_date = start.year
+    start.year
   end
 
-  def senator_salary
-    SENATOR_SALARIES.each do |year, value|
-      if year_of_start_date == year
-        return value
+  def starting_senator_salary
+    starting_salary = SENATOR_SALARIES.select do |year, salary|
+      if year == year_of_start_date
+        { year => salary }
+      elsif year < year_of_start_date
+        { year => salary }
       end
     end
+    salary = starting_salary.max
+    salary[1]
   end
 end
