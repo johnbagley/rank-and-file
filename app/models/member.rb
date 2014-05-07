@@ -79,7 +79,37 @@ class Member
         { year => salary }
       end
     end
-    salary = starting_salary.max
-    salary[1]
+    salary = starting_salary.max # returns [year, salary]
+    # salary[0] #returns the year, salary[1] #returns the salary
+  end
+
+  def year_of_end_date
+    DateTime.now.year
+  end
+
+  def cumulative_senator_salary
+    sum = 0
+    last_year = year_of_start_date
+    last_salary = 22_500
+
+    SENATOR_SALARIES.each do |year, new_salary|
+      if year >= year_of_start_date
+        year_range = year - last_year
+        wombat = last_salary * year_range
+        sum += wombat
+      end
+
+      if year == year_of_end_date
+        sum += new_salary
+      end
+
+      if year > last_year
+        last_year = year
+      end
+
+      last_salary = new_salary
+    end
+
+    sum
   end
 end
