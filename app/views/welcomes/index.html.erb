@@ -5,7 +5,7 @@
 
   <div id="search">
     <%= form_for :query, url: search_results_path, method: :get do |form| %>
-      <%= form.text_field :name, placeholder: 'Search for  Member' %>
+      <%= form.text_field :name, placeholder: 'Search for Member' %>
       <%= form.submit 'Search' %>
     <% end %>
   </div>

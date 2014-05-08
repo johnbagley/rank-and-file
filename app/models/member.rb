@@ -72,12 +72,12 @@ class Member
   end
 
   def starting_senator_salary
-    starting_salary.to_a = SENATOR_SALARIES.select do |year, salary|
+    starting_salary = SENATOR_SALARIES.select do |year, salary|
       if year <= year_of_start_date
         year
       end
     end
-    salary = starting_salary.max
+    starting_salary.to_a[1]
   end
 
   def year_of_end_date
