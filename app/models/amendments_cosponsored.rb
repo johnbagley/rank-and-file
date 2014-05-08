@@ -7,8 +7,6 @@ class AmendmentsCosponsored
   first_name = 'michael'
   last_name = 'capuano'
 
-  puts 'Hello World'
-
   url = "http://beta.congress.gov/member?q=#{first_name}-#{last_name}"
   doc = Nokogiri::HTML(open(url))
   member_with_member_number = doc.css('ul.results_list li h2 a')
