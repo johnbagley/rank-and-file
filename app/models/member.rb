@@ -72,15 +72,12 @@ class Member
   end
 
   def starting_senator_salary
-    starting_salary = SENATOR_SALARIES.select do |year, salary|
-      if year == year_of_start_date
-        { year => salary }
-      elsif year < year_of_start_date
-        { year => salary }
+    starting_salary.to_a = SENATOR_SALARIES.select do |year, salary|
+      if year <= year_of_start_date
+        year
       end
     end
-    salary = starting_salary.max # returns [year, salary]
-    # salary[0] #returns the year, salary[1] #returns the salary
+    salary = starting_salary.max
   end
 
   def year_of_end_date
@@ -95,8 +92,8 @@ class Member
     SENATOR_SALARIES.each do |year, new_salary|
       if year >= year_of_start_date
         year_range = year - last_year
-        wombat = last_salary * year_range
-        sum += wombat
+        updated_salary = last_salary * year_range
+        sum += updated_salary
       end
 
       if year == year_of_end_date
