@@ -1,5 +1,6 @@
 $(function () {
   var memberName = $('[data-role=member-name]').text();
+  var billsSponsored = Number($('#bills-sponsored-graph').data('bills-sponsored'));
 
   $('#bills-sponsored-graph').highcharts({
     chart: {
@@ -25,11 +26,11 @@ $(function () {
     series: [
       {
         name: memberName,
-          data: [22]
+          data: [billsSponsored]
       },
       {
       name: 'Average',
-        data: [5]
+        data: [225]
       }
     ]
   });

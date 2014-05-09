@@ -2,23 +2,31 @@
 class BillsCosponsored
   require 'open-uri'
   require 'nokogiri'
+  attr_reader :first_name, :last_name
 
-  first_name = 'bobby'
-  last_name = 'jindal'
+  def initialize(first_name, last_name)
+    @first_name = first_name
+    @last_name = last_name
+  end
 
-  url = "http://beta.congress.gov/member?q=#{first_name}-#{last_name}"
-  doc = Nokogiri::HTML(open(url))
-  member_with_member_number = doc.css('ul.results_list li h2 a')
-  top_result = member_with_member_number[0].to_s
-  words = top_result.split('"')
-  parsed_words = words[1].split('?')
-  parsed_member_path = parsed_words[0]
-  puts parsed_member_path
+  def number_of_cosponsored_bills
+    number_of_cosponsored_bills_url = "#{number_of_cosponsored_bills_path}?q=%7B%22search%22%3A%5B%22#{first_name}+#{last_name}%22%5D%2C%22sponsorship%22%3A%22Cosponsored+Legislation%22%2C%22type%22%3A%22bills%22%7D"
+    number_of_cosponsored_bills_doc = Nokogiri::HTML(open(number_of_cosponsored_bills_url))
+    scraped_data = number_of_cosponsored_bills_doc.css('#searchTune span').text
+    # data = scraped_data.match(/[\d,]+$/)
+    data = /[\d,]+$/.match(scraped_data).to_s
+  end
 
-  parsed_url = "#{parsed_member_path}?q=%7B%22search%22%3A%5B%22bobby+jindal%22%5D%2C%22type%22%3A%22bills%22%2C%22sponsorship%22%3A%22Cosponsored+Legislation%22%7D"
-  parsed_doc = Nokogiri::HTML(open(parsed_url))
-  wombat = parsed_doc.css('#searchTune span').text
-  words = wombat.split(/\W+/)
-  number_of_bills = words.last
-  puts "Number of bills: #{number_of_bills}"
+  private
+
+  def number_of_cosponsored_bills_path
+    url = "http://beta.congress.gov/member?q=#{first_name}-#{last_name}"
+    number_of_cosponsored_bills_path = Nokogiri::HTML(open(url))
+    member_with_member_number = number_of_cosponsored_bills_path.css('ul.results_list li h2 a')
+    top_result = member_with_member_number[0].to_s
+    path_strings = top_result.split('"')
+    path_string = path_strings[1].split('?')
+    path = path_string[0] #this is a URL
+  end
+
 end

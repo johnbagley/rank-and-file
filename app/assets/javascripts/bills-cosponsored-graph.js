@@ -1,5 +1,7 @@
 $(function () {
   var memberName = $('[data-role=member-name]').text();
+  var billsCosponsored = ($('#bills-cosponsored-graph').data('bills-cosponsored'));
+  var billsCosponsoredReplace = Number(billsCosponsored.replace(/\,/g,''));
 
   $('#bills-cosponsored-graph').highcharts({
     chart: {
@@ -9,7 +11,7 @@ $(function () {
       enabled: false
     },
     tooltip: {
-      enabled: false
+      enabled: true
     },
     title: {
       text: 'Bills Co-Sponsored'
@@ -25,7 +27,7 @@ $(function () {
     series: [
       {
         name: memberName,
-        data: [122]
+        data: [billsCosponsoredReplace]
       },
       {
         name: 'Average',
