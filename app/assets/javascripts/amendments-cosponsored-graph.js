@@ -1,7 +1,12 @@
 $(function () {
   var memberName = $('[data-role=member-name]').text();
-  $('#amendments-cosponsored-graph').highcharts({
+  var amendmentsCosponsored = ($('#amendments-cosponsored-graph').data('amendments-cosponsored'));
 
+  if (amendmentsCosponsored.length > 3) {
+    Number(amendmentsCosponsored.replace(/\,/g,''));
+  }
+
+  $('#amendments-cosponsored-graph').highcharts({
     chart: {
       type: 'column'
     },
@@ -25,7 +30,7 @@ $(function () {
     series: [
       {
         name: memberName,
-          data: [232]
+          data: [amendmentsCosponsored]
       },
       {
         name: 'Average',

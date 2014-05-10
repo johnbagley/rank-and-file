@@ -1,25 +1,31 @@
 #scrapes congress.gov for the number of amendments sponsored by a member, taking in their first and last name through string interpolation
 class AmendmentsCosponsored
-
   require 'open-uri'
   require 'nokogiri'
+  attr_reader :first_name, :last_name
 
-  first_name = 'michael'
-  last_name = 'capuano'
+  def initialize(first_name, last_name)
+    @first_name = first_name
+    @last_name = last_name
+  end
 
-  url = "http://beta.congress.gov/member?q=#{first_name}-#{last_name}"
-  doc = Nokogiri::HTML(open(url))
-  member_with_member_number = doc.css('ul.results_list li h2 a')
-  top_result = member_with_member_number[0].to_s
-  words = top_result.split('"')
-  parsed_words = words[1].split('?')
-  parsed_member_path = parsed_words[0]
-  puts parsed_member_path
+  def number_of_amendments_cosponsored
+    url = "#{amendments_cosponsored_path}?q=%7B%22search%22%3A%5B%22harry+reid%22%5D%2C%22sponsorship%22%3A%22Cosponsored+Legislation%22%2C%22type%22%3A%22amendments%22%7D"
+    number_of_amendments_cosponsored_doc = Nokogiri::HTML(open(url))
+    scraped_data  = number_of_amendments_cosponsored_doc.css('#searchTune span').text
+    data = /[\d,]+$/.match(scraped_data).to_s
+  end
 
-  parsed_url = "#{parsed_member_path}?q=%7B%22search%22%3A%5B%22harry+reid%22%5D%2C%22sponsorship%22%3A%22Cosponsored+Legislation%22%2C%22type%22%3A%22amendments%22%7D"
-  parsed_doc = Nokogiri::HTML(open(parsed_url))
-  wombat = parsed_doc.css('#searchTune span').text
-  words = wombat.split(/\W+/)
-  number_of_bills = words.last
-  puts "Number of bills: #{number_of_bills}"
+  private
+
+  def amendments_cosponsored_path
+    url = "http://beta.congress.gov/member?q=#{first_name}-#{last_name}"
+    amendments_cosponsored_path_doc = Nokogiri::HTML(open(url))
+    member_with_member_number = amendments_cosponsored_path_doc.css('ul.results_list li h2 a')
+    top_result = member_with_member_number[0].to_s
+    path_strings = top_result.split('"')
+    path_string = path_strings[1].split('?')
+    path_string[0]
+  end
+
 end
