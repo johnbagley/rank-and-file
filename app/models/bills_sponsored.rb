@@ -1,4 +1,5 @@
-#scrapes congress.gov for the number of bills sponsored by a member, taking in their first and last name through string interpolation
+# scrapes congress.gov for the number of bills sponsored by a member,
+# taking in their first and last name through string interpolation
 class BillsSponsored
   require 'open-uri'
   require 'nokogiri'

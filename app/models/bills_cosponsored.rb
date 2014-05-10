@@ -1,4 +1,5 @@
-#scrapes congress.gov for the number of bills cosponsored by a member, taking in their first and last name through string interpolation
+# scrapes congress.gov for the number of bills cosponsored by a member,
+# taking in their first and last name through string interpolation
 class BillsCosponsored
   require 'open-uri'
   require 'nokogiri'
@@ -13,7 +14,6 @@ class BillsCosponsored
     number_of_cosponsored_bills_url = "#{number_of_cosponsored_bills_path}?q=%7B%22search%22%3A%5B%22#{first_name}+#{last_name}%22%5D%2C%22sponsorship%22%3A%22Cosponsored+Legislation%22%2C%22type%22%3A%22bills%22%7D"
     number_of_cosponsored_bills_doc = Nokogiri::HTML(open(number_of_cosponsored_bills_url))
     scraped_data = number_of_cosponsored_bills_doc.css('#searchTune span').text
-    # data = scraped_data.match(/[\d,]+$/)
     data = /[\d,]+$/.match(scraped_data).to_s
   end
 

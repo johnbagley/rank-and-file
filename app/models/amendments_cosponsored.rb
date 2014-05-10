@@ -1,4 +1,5 @@
-#scrapes congress.gov for the number of amendments sponsored by a member, taking in their first and last name through string interpolation
+# scrapes congress.gov for the number of amendments cosponsored by a member,
+# taking in their first and last name through string interpolation
 class AmendmentsCosponsored
   require 'open-uri'
   require 'nokogiri'
@@ -10,7 +11,7 @@ class AmendmentsCosponsored
   end
 
   def number_of_amendments_cosponsored
-    url = "#{amendments_cosponsored_path}?q=%7B%22search%22%3A%5B%22harry+reid%22%5D%2C%22sponsorship%22%3A%22Cosponsored+Legislation%22%2C%22type%22%3A%22amendments%22%7D"
+    url = "#{amendments_cosponsored_path}?q=%7B%22search%22%3A%5B%22#{first_name}+#{last_name}%22%5D%2C%22sponsorship%22%3A%22Cosponsored+Legislation%22%2C%22type%22%3A%22amendments%22%7D"
     number_of_amendments_cosponsored_doc = Nokogiri::HTML(open(url))
     scraped_data  = number_of_amendments_cosponsored_doc.css('#searchTune span').text
     data = /[\d,]+$/.match(scraped_data).to_s
