@@ -1,8 +1,7 @@
 # scrapes congress.gov for the number of amendments sponsored by a member,
 # taking in their first and last name through string interpolation
+require 'open-uri'
 class AmendmentsSponsored
-  require 'open-uri'
-  require 'nokogiri'
   attr_reader :first_name, :last_name
 
   def initialize(first_name, last_name)
@@ -14,7 +13,7 @@ class AmendmentsSponsored
     number_of_amendments_sponsored_url = "#{amendments_sponsored_path}?q=%7B%22search%22%3A%5B%22#{first_name}+#{last_name}%22%5D%2C%22type%22%3A%22amendments%22%2C%22sponsorship%22%3A%22Sponsored+Legislation%22%7D"
     number_of_amendments_sponsored_doc = Nokogiri::HTML(open(number_of_amendments_sponsored_url))
     scraped_data = number_of_amendments_sponsored_doc.css('#searchTune span').text
-    data = /[\d,]+$/.match(scraped_data).to_s
+    /[\d,]+$/.match(scraped_data).to_s
   end
 
   private

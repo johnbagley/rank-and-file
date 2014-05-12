@@ -77,7 +77,7 @@ class Member
         year
       end
     end
-    salary = starting_salary.to_a[1]
+    starting_salary.to_a[1]
   end
 
   def year_of_end_date
