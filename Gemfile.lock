@@ -69,6 +69,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile (0.5.3)
     minitest (5.3.3)
@@ -80,6 +81,10 @@ GEM
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     polyglot (0.3.4)
+    pry (0.9.12.6)
+      coderay (~> 1.0)
+      method_source (~> 0.8)
+      slop (~> 3.4)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -110,6 +115,7 @@ GEM
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
+    slop (3.5.0)
     spring (1.1.2)
     sprockets (2.11.0)
       hike (~> 1.2)
@@ -151,6 +157,7 @@ DEPENDENCIES
   json
   neat
   nokogiri
+  pry
   rails (= 4.1.0.rc2)
   sass-rails (~> 4.0.2)
   sdoc (~> 0.4.0)

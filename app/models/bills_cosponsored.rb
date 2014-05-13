@@ -25,7 +25,7 @@ class BillsCosponsored
     top_result = member_with_member_number[0].to_s
     path_strings = top_result.split('"')
     path_string = path_strings[1].split('?')
-    path = path_string[0]
+    path_string[0]
   end
 
 end
