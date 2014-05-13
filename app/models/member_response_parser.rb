@@ -27,15 +27,15 @@ class MemberResponseParser
   end
 
   def last_name
-    @govtrack_api_response["lastname"]
+    @govtrack_api_response['lastname']
   end
 
   def first_name
-    @govtrack_api_response["firstname"]
+    @govtrack_api_response['firstname']
   end
 
   def chamber
-    @govtrack_api_response["roles"].last["role_type"].capitalize
+    @govtrack_api_response['roles'].last['role_type'].capitalize
   end
 
   def full_name
@@ -43,7 +43,7 @@ class MemberResponseParser
   end
 
   def party
-    @govtrack_api_response["roles"].last["party"].capitalize
+    @govtrack_api_response['roles'].last['party'].capitalize
   end
 
   def photo_url
@@ -51,7 +51,7 @@ class MemberResponseParser
   end
 
   def govtrack_id
-    @govtrack_api_response["govtrack_id"]
+    @govtrack_api_response['govtrack_id']
   end
 
   def salary
@@ -59,18 +59,18 @@ class MemberResponseParser
   end
 
   def state
-    @govtrack_api_response["roles"].last["state"]
+    @govtrack_api_response['roles'].last['state']
   end
 
   def start_date
     current_roles.map do |role|
-      role["startdate"]
+      role['startdate']
     end
   end
 
   def current_roles
-    @govtrack_api_response["roles"].select do |role|
-      current_role_type?(role["role_type"])
+    @govtrack_api_response['roles'].select do |role|
+      current_role_type?(role['role_type'])
     end
   end
 
@@ -79,7 +79,7 @@ class MemberResponseParser
   end
 
   def current_role_type
-    @govtrack_api_response["roles"].last["role_type"]
+    @govtrack_api_response['roles'].last['role_type']
   end
 
   def year_of_start_date
