@@ -1,5 +1,5 @@
 class CalculateAverage
-attr_accessor :member
+  attr_accessor :member
 
   def initialize(member)
     @member = member

@@ -1,5 +1,5 @@
 class MemberResponseParser
-attr_accessor :govtrack_api_response, :govtrack_id
+  attr_accessor :govtrack_api_response, :govtrack_id
 
   def initialize(govtrack_api_response)
     @govtrack_api_response = govtrack_api_response
@@ -17,7 +17,7 @@ attr_accessor :govtrack_api_response, :govtrack_id
       salary: salary,
       state: state,
       start_date: start_date.min,
-      # current_roles: current_roles,
+      current_roles: current_roles,
       current_role_type: current_role_type,
       year_of_start_date: year_of_start_date,
       starting_senator_salary: starting_senator_salary.last,
