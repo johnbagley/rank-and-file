@@ -11,18 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140428153607) do
+ActiveRecord::Schema.define(version: 20140513204507) do
 
   create_table "members", force: true do |t|
-    t.string   "name"
-    t.string   "house"
-    t.string   "state"
-    t.string   "district"
-    t.string   "tenure"
-    t.string   "salary"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "chamber"
     t.string   "party"
+    t.string   "photo_url"
+    t.string   "salary"
+    t.string   "start_date"
+    t.string   "current_roles"
+    t.string   "current_role_type"
+    t.string   "year_of_start_date"
+    t.string   "starting_senator_salary"
+    t.string   "year_of_end_date"
+    t.string   "cumulative_senator_salary"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "full_name"
+    t.string   "state"
   end
 
 end

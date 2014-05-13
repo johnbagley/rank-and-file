@@ -1,9 +1,15 @@
 $(function () {
   var memberName = $('[data-role=member-name]').text();
-  var billsSponsored = ($('#bills-sponsored-graph').data('bills-sponsored'));
+  var $graph = $('#bills-sponsored-graph');
+  var billsSponsored = $graph.data('bills-sponsored');
+  var averageBillsSponsored = $graph.data('average-bills-sponsored');
 
   if (billsSponsored.length > 3) {
     Number(billsSponsored.replace(/\,/g,''));
+  }
+
+  if (averageBillsSponsored.length > 3) {
+    Number(averageBillsSponsored.replace(/\,/g,''));
   }
 
   $('#bills-sponsored-graph').highcharts({
@@ -14,7 +20,7 @@ $(function () {
       enabled: false
     },
     tooltip: {
-      enabled: false
+      enabled: true
       },
     title: {
       text: 'Bills Sponsored'
@@ -34,7 +40,7 @@ $(function () {
       },
       {
       name: 'Average',
-        data: [225]
+        data: [averageBillsSponsored]
       }
     ]
   });

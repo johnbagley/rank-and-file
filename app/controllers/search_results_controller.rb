@@ -1,32 +1,31 @@
 class SearchResultsController < ApplicationController
 
   def show
-    @member = Member.find_by_name(params[:query][:name])
-    @bills_sponsored = bills_sponsored
-    @bills_cosponsored = bills_cosponsored
-    @amendments_sponsored = amendments_sponsored
-    @amendments_cosponsored = amendments_cosponsored
+    @member = Member.where('full_name LIKE ?', params[:query][:name]).first
+    @average_bills_sponsored = average_bills_sponsored
+    @average_bills_cosponsored = average_bills_cosponsored
+    @average_amendments_sponsored = average_amendments_sponsored
+    @average_amendments_cosponsored = average_amendments_cosponsored
   end
 
   private
 
-  def bills_sponsored
-    BillsSponsored.new(@member.first_name, @member.last_name).number_of_bills
+  def average_bills_sponsored
+    CalculateAverage.new(@member).calculate_average_number_of_bills
   end
 
-  def bills_cosponsored
-    BillsCosponsored.new(@member.first_name, @member.last_name).
-      number_of_cosponsored_bills
+  def average_bills_cosponsored
+    CalculateAverage.new(@member).
+      calculate_average_number_of_bills_cosponsored
   end
 
-  def amendments_sponsored
-    AmendmentsSponsored.new(@member.first_name, @member.last_name).
-      number_of_amendments_sponsored
+  def average_amendments_sponsored
+    CalculateAverage.new(@member).
+      calculate_average_number_of_amendments_sponsored
   end
 
-  def amendments_cosponsored
-    AmendmentsCosponsored.new(@member.first_name, @member.last_name).
-      number_of_amendments_cosponsored
+  def average_amendments_cosponsored
+    CalculateAverage.new(@member).
+      calculate_average_number_of_amendments_cosponsored
   end
-
 end

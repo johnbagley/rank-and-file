@@ -19,3 +19,7 @@ gem 'spring',        group: :development
 gem 'bourbon'
 gem 'bitters'
 gem 'neat'
+
+group :development, :test do
+  gem 'pry'
+end

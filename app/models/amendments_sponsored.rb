@@ -10,7 +10,7 @@ class AmendmentsSponsored
   end
 
   def number_of_amendments_sponsored
-    number_of_amendments_sponsored_url = "#{amendments_sponsored_path}?q=%7B%22search%22%3A%5B%22#{first_name}+#{last_name}%22%5D%2C%22type%22%3A%22amendments%22%2C%22sponsorship%22%3A%22Sponsored+Legislation%22%7D"
+    number_of_amendments_sponsored_url = "#{amendments_sponsored_path}?q=%7B%22search%22%3A%5B%22#{first_name}+#{last_name}%22%5D%2C%22sponsorship%22%3A%22Sponsored+Legislation%22%2C%22type%22%3A%22amendments%22%2C%22chamber%22%3A%22Senate%22%7D"
     number_of_amendments_sponsored_doc = Nokogiri::HTML(open(number_of_amendments_sponsored_url))
     scraped_data = number_of_amendments_sponsored_doc.css('#searchTune span').text
     /[\d,]+$/.match(scraped_data).to_s
