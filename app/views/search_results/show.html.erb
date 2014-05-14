@@ -1,20 +1,30 @@
 <div id='wrapper'>
+  <div id="logo">
+    <%= link_to(image_tag('mocks/logo.png'), root_path) %>
+    <h2>Search and see how your Senators compare to their colleagues</h2>
+  </div>
+
+  <div id="search">
+    <%= form_for :query, url: search_results_path, method: :get do |form| %>
+      <%= form.text_field :name, placeholder: '"Elizabeth Warren"' %>
+      <%= form.submit 'Search' %>
+    <% end %>
+  </div>
 
   <div id='result'>
-    <div>
+    <div id='member-pic'>
       <%= image_tag(@member.photo_url) %>
-      <span data-role="member-name"><%= @member.full_name %></span>
+      <p><span data-role="member-name"><%= @member.full_name %></span>
       <%= "(#{@member.party} - #{@member.state})" %>
       <p><%= @member.chamber %></p>
-      <p>In office <%= time_ago_in_words(@member.start_date) %></p>
+      <p>In office since  <%= (@member.year_of_start_date) %></p>
       <p>Current salary: <%= number_to_currency(@member.salary, precision: 0) %></p>
       <p>Cumulative salary: <%= number_to_currency(@member.cumulative_senator_salary, precision: 0) %>
-    <p>Average amendments cosponsored should be displayed here: <%= @average_amendments_cosponsored %></p>
     </div>
 
     <div id="graphs">
       <ul>
-        <li class="block" id="bills-sponsored-graph" data-bills-sponsored="<%= @member.bills_sponsored %>" data-average-bills-sponsored="<%= @average_bills_sponsored %>"></li>
+        <li class="block" id="bills-sponsored-graph" data-bills-sponsored="<%= @member.bills_sponsored %>" data-average-bills-sponsored="<%= @average_bills_sponsored %>"></li></a>
         <li class="block" id="bills-cosponsored-graph" data-bills-cosponsored="<%= @member.bills_cosponsored %>" data-average-bills-cosponsored="<%= @average_bills_cosponsored %>"></li>
         <li class="block" id="amendments-sponsored-graph" data-amendments-sponsored="<%= @member.amendments_sponsored %>" data-average-amendments-sponsored="<%= @average_amendments_sponsored %>"></li>
         <li class="block" id="amendments-cosponsored-graph" data-amendments-cosponsored="<%= @member.amendments_cosponsored %>" data-average-amendments-cosponsored="<%= @average_amendments_cosponsored %>"></li>

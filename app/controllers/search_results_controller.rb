@@ -1,4 +1,5 @@
 class SearchResultsController < ApplicationController
+  caches_page :show
 
   def show
     @member = Member.where('full_name LIKE ?', params[:query][:name]).first

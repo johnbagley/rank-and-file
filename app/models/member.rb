@@ -19,4 +19,5 @@ class Member < ActiveRecord::Base
     AmendmentsCosponsored.new(first_name, last_name).
       number_of_amendments_cosponsored
   end
+
 end

@@ -82,7 +82,7 @@ class MemberResponseParser
   end
 
   def year_of_start_date
-    start = Date.parse(start_date.min)
+    start = Date.parse(start_date.min) || Data.parse(start_date)
     start.year
   end
 

@@ -17,11 +17,18 @@ $(function () {
     chart: {
       type: 'column'
     },
+    plotOptions: {
+        column: {
+            dataLabels: {
+                enabled: true
+            }
+        }
+    },
     credits: {
       enabled: false
     },
     tooltip: {
-      enabled: true
+      enabled: false
       },
     title: {
       text: 'Amendments Co-Sponsored'

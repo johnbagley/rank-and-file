@@ -17,55 +17,22 @@
 @import "bitters/bitters";
 @import "neat";
 
-.results {
-  background-color:white;
-  #wrapper {
-    @include clearfix;
-    @include outer-container;
-    @include span-columns(12);
-  }
+#logo img {
+  max-height: 50px;
+  float:left;
+  padding-right: 40px;
+  vertical-align: bottom;
+}
 
-  #search {
-    @include span-columns(10);
-  }
-
-  #toggle {
-    @include clearfix;
-    @include span-columns(9);
-    @include shift(3);
-    height: 25px;
-    border-style:solid;
-    border-width:1px;
-    text-align:center;
-    background-color:silver;
-    a:link {
-
-      color: black;
-    }
-    a:visited {
-      color: black;
-    }
-    a:hover {
-      color: black;
-      font-weight: bold;
-    }
-
-    li {
-      display: inline;
-      margin: 0 10px;
-      font-size: 14px;
-    }
-  }
-
-  #member_pic {
-    @include clearfix;
-    @include span-columns(3);
-  }
-
-  #graphs {
-    @include clearfix;
-    @include span-columns(9);
-  }
+body {
+  @include outer-container;
+  @include clearfix;
+  background-image:url("mocks/blurred_chamber.jpg");
+  box-shadow: 0px 0px 25px black;
+  background-position: absolute;
+  bottom: 5px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #wrapper {
@@ -74,42 +41,116 @@
   background-repeat: repeat;
   color: white;
   padding: 15px;
+  height: 750px;
 }
 
-body {
-  @include outer-container;
-  @include clearfix;
-  background-image:url("mocks/chamber.jpg");
-  box-shadow: 0px 0px 25px black;
-  background-position: absolute;
-  bottom: 5px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  }
-
-.centered {
-  background-color: black;
-  color: white;
-  @include span-columns(10);
-  @include shift(1);
-}
-
-#graph {
-  @include span_columns(9);
-}
 #search {
   @include clearfix;
   @include outer-container;
-  @include span_columns(10);
+  @include span_columns(12);
   padding-top: 25px;
+  padding-bottom: 20px;
 }
 
-#button {
-  @include button(simple, $base-accent-color);
-  -webkit-font-smoothing: antialiased;
-  font-size: $base-font-size;
-  font-weight: bold;
-  line-height: 1em;}
+#result {
+  @include clearfix;
+
+  #member-pic {
+    @include span_columns(3);
+    // background-color: white;
+  }
+
+  #member-info {
+    @include span_columns(3);
+    float: left;
+  }
+
+    ul {
+      @include span_columns(9);
+
+      li.block {
+        @include span-columns(6);
+        @include omega(2n);
+
+        // border-style:solid;
+        // border-width:1px;
+        height:275px;
+        padding: 10px 0;
+
+        img {
+          @include span-columns(12);
+          height: 250px;
+        }
+      }
+    }
+}
+// .results {
+//   background-color:white;
+//   #wrapper {
+//     @include clearfix;
+//     @include outer-container;
+//     @include span-columns(12);
+//   }
+//
+//   #search {
+//     @include span-columns(10);
+//   }
+//
+//   #toggle {
+//     @include clearfix;
+//     @include span-columns(9);
+//     @include shift(3);
+//     height: 25px;
+//     border-style:solid;
+//     border-width:1px;
+//     text-align:center;
+//     background-color:silver;
+//     a:link {
+//
+//       color: black;
+//     }
+//     a:visited {
+//       color: black;
+//     }
+//     a:hover {
+//       color: black;
+//       font-weight: bold;
+//     }
+//
+//     li {
+//       display: inline;
+//       margin: 0 10px;
+//       font-size: 14px;
+//     }
+//   }
+//
+//   #member_pic {
+//     @include clearfix;
+//     @include span-columns(3);
+//   }
+//
+//   #graphs {
+//     @include clearfix;
+//     @include span-columns(9);
+//   }
+// }
+// .centered {
+//   background-color: black;
+//   color: white;
+//   @include span-columns(10);
+//   @include shift(1);
+// }
+
+// #graph {
+//   @include span_columns(9);
+// }
+
+// #button {
+//   @include button(simple, $base-accent-color);
+//   -webkit-font-smoothing: antialiased;
+//   font-size: $base-font-size;
+//   font-weight: bold;
+//   line-height: 1em;}
 
 #main-img {
   @include span-columns(8);
@@ -117,63 +158,36 @@ body {
   align: bottom;
   padding-bottom: 15px;
 }
+//
+// #member-pic{
+//   @include span_columns(3);
+// }
+//
+// .toggle {
+//   @include clearfix;
+//   @include span-columns(9);
+//   @include shift(3);
+//   height: 25px;
+//   border-style:solid;
+//   border-width:1px;
+//   text-align:center;
+//   background-color:silver;
+//     a:link {
+//
+//       color: black;
+//     }
+//     a:visited {
+//       color: black;
+//     }
+//     a:hover {
+//       color: black;
+//       font-weight: bold;
+//     }
+//
+//   li {
+//   display: inline;
+//   margin: 0 10px;
+//   font-size: 14px;
+//   }
+// }
 
-#member-pic{
-  @include span_columns(3);
-}
-
-.toggle {
-  @include clearfix;
-  @include span-columns(9);
-  @include shift(3);
-  height: 25px;
-  border-style:solid;
-  border-width:1px;
-  text-align:center;
-  background-color:silver;
-    a:link {
-
-      color: black;
-    }
-    a:visited {
-      color: black;
-    }
-    a:hover {
-      color: black;
-      font-weight: bold;
-    }
-
-  li {
-  display: inline;
-  margin: 0 10px;
-  font-size: 14px;
-  }
-}
-
-#result {
-  @include clearfix;
-
-  img {
-    @include span_columns(3);
-    background-color: white;
-  }
-
-  ul {
-    @include span_columns(9);
-
-    li.block {
-      @include span-columns(6);
-      @include omega(2n);
-
-      border-style:solid;
-      border-width:1px;
-      height:250px;
-      padding: 10px 0;
-
-      img {
-        @include span-columns(12);
-        height: 250px;
-      }
-    }
-  }
-}
