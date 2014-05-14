@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140512191347) do
+ActiveRecord::Schema.define(version: 20140513204507) do
 
   create_table "members", force: true do |t|
     t.string   "first_name"
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 20140512191347) do
     t.string   "salary"
     t.string   "start_date"
     t.string   "current_roles"
-    t.string   "current_role_type?"
     t.string   "current_role_type"
     t.string   "year_of_start_date"
     t.string   "starting_senator_salary"

@@ -5,11 +5,11 @@ $(function () {
   var averageBillsCosponsored = $graph.data('average-bills-cosponsored');
 
   if (billsCosponsored.length > 3) {
-    Number(billsCosponsored.replace(/\,/g,''));
+    billsCosponsored = Number(billsCosponsored.replace(/\,/g,''));
   }
 
   if (averageBillsCosponsored.length > 3) {
-    Number(averageBillsCosponsored.replace(/\,/g,''));
+    averageBillsCosponsored = Number(averageBillsCosponsored.replace(/\,/g,''));
   }
 
   $('#bills-cosponsored-graph').highcharts({

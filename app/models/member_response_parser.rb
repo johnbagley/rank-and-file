@@ -1,11 +1,10 @@
 class MemberResponseParser
   attr_accessor :govtrack_api_response, :govtrack_id
+  SALARY = 174_000
 
   def initialize(govtrack_api_response)
     @govtrack_api_response = govtrack_api_response
   end
-
-  SALARY = 174_000
 
   def parse
     { first_name: first_name,
@@ -22,7 +21,7 @@ class MemberResponseParser
       year_of_start_date: year_of_start_date,
       starting_senator_salary: starting_senator_salary.last,
       year_of_end_date: year_of_end_date,
-      cumulative_senator_salary: cumulative_senator_salary
+      cumulative_senator_salary: cumulative_senator_salary,
     }
   end
 
@@ -70,11 +69,11 @@ class MemberResponseParser
 
   def current_roles
     @govtrack_api_response['roles'].select do |role|
-      current_role_type?(role['role_type'])
+      current_role_type_correct?(role['role_type'])
     end
   end
 
-  def current_role_type?(role_type)
+  def current_role_type_correct?(role_type)
     role_type == current_role_type
   end
 
@@ -125,4 +124,5 @@ class MemberResponseParser
 
     sum
   end
+
 end

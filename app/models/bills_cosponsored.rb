@@ -10,7 +10,7 @@ class BillsCosponsored
   end
 
   def number_of_cosponsored_bills
-    number_of_cosponsored_bills_url = "#{number_of_cosponsored_bills_path}?q=%7B%22search%22%3A%5B%22#{first_name}+#{last_name}%22%5D%2C%22sponsorship%22%3A%22Cosponsored+Legislation%22%2C%22type%22%3A%22bills%22%7D"
+    number_of_cosponsored_bills_url = "#{number_of_cosponsored_bills_path}?q=%7B%22search%22%3A%5B%22#{first_name}+#{last_name}%22%5D%2C%22sponsorship%22%3A%22Cosponsored+Legislation%22%2C%22type%22%3A%22bills%22%2C%22chamber%22%3A%22Senate%22%7D"
     number_of_cosponsored_bills_doc = Nokogiri::HTML(open(number_of_cosponsored_bills_url))
     scraped_data = number_of_cosponsored_bills_doc.css('#searchTune span').text
     /[\d,]+$/.match(scraped_data).to_s
