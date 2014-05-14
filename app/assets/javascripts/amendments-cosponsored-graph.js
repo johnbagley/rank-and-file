@@ -17,6 +17,13 @@ $(function () {
     chart: {
       type: 'column'
     },
+    plotOptions: {
+        column: {
+            dataLabels: {
+                enabled: true
+            }
+        }
+    },
     credits: {
       enabled: false
     },

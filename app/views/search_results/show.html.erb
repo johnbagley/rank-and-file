@@ -1,15 +1,24 @@
 <div id='wrapper'>
+  <div id="logo">
+    <h1>LOGO  See how your elected officials compare to the average.</h1>
+  </div>
+
+  <div id="search">
+    <%= form_for :query, url: search_results_path, method: :get do |form| %>
+      <%= form.text_field :name, placeholder: 'Search for Member' %>
+      <%= form.submit 'Search' %>
+    <% end %>
+  </div>
 
   <div id='result'>
-    <div>
+    <div id='member-pic'>
       <%= image_tag(@member.photo_url) %>
-      <span data-role="member-name"><%= @member.full_name %></span>
+      <p><span data-role="member-name"><%= @member.full_name %></span>
       <%= "(#{@member.party} - #{@member.state})" %>
       <p><%= @member.chamber %></p>
       <p>In office <%= time_ago_in_words(@member.start_date) %></p>
       <p>Current salary: <%= number_to_currency(@member.salary, precision: 0) %></p>
       <p>Cumulative salary: <%= number_to_currency(@member.cumulative_senator_salary, precision: 0) %>
-    <p>Average amendments cosponsored should be displayed here: <%= @average_amendments_cosponsored %></p>
     </div>
 
     <div id="graphs">

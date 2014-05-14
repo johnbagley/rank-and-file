@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RankAndFile</title>
+  <link data-turbolinks-track="true" href="/assets/application.css?body=1" media="all" rel="stylesheet" />
+  <script data-turbolinks-track="true" src="/assets/jquery.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/jquery_ujs.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/turbolinks.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/jquery.min.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/highcharts.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/highcharts/highcharts-more.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/amendments-cosponsored-graph.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/amendments-sponsored-graph.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/bills-cosponsored-graph.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/bills-sponsored-graph.js?body=1"></script>
+<script data-turbolinks-track="true" src="/assets/application.js?body=1"></script>
+  <meta content="authenticity_token" name="csrf-param" />
+<meta content="2lGGXsxVL+ykoCEtiVhWer3rjo6mBhLQY9aObxknCrM=" name="csrf-token" />
+</head>
+<body>
+
+<div id='wrapper'>
+  <div id="logo">
+    <h1>LOGO  See how your elected officials compare to the average.</h1>
+  </div>
+
+  <div id="search">
+    <form accept-charset="UTF-8" action="/search_results" method="get"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+      <input id="query_name" name="query[name]" placeholder="Search for Member" type="text" />
+      <input name="commit" type="submit" value="Search" />
+</form>  </div>
+
+  <div id='result'>
+    <div id='member-pic'>
+      <img alt="412326" src="https://www.govtrack.us/data/photos/412326.jpeg" />
+      <p><span data-role="member-name">Mark Begich</span>
+      (Democrat - AK)
+      <p>Senator</p>
+      <p>In office over 5 years</p>
+      <p>Current salary: $174,000</p>
+      <p>Cumulative salary: $1,044,000
+    </div>
+
+    <div id="graphs">
+      <ul>
+        <li class="block" id="bills-sponsored-graph" data-bills-sponsored="146" data-average-bills-sponsored="111"></li>
+        <li class="block" id="bills-cosponsored-graph" data-bills-cosponsored="933" data-average-bills-cosponsored="681"></li>
+        <li class="block" id="amendments-sponsored-graph" data-amendments-sponsored="105" data-average-amendments-sponsored="87"></li>
+        <li class="block" id="amendments-cosponsored-graph" data-amendments-cosponsored="304" data-average-amendments-cosponsored="199"></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

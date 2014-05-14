@@ -10,11 +10,11 @@ Member.destroy_all
 
 names = [
   'Lamar Alexander',
-  'Kelly Ayotte',
-  'Tammy Baldwin',
-  'John Barrasso',
-  # 'Mark Begich',
-  # 'Michael Bennet',
+  # 'Kelly Ayotte',
+  # 'Tammy Baldwin',
+  # 'John Barrasso',
+  'Mark Begich',
+  'Michael Bennet',
   # 'Richard Blumenthal',
   # 'Roy Blunt',
   # 'Cory Booker',

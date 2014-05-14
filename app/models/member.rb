@@ -19,4 +19,12 @@ class Member < ActiveRecord::Base
     AmendmentsCosponsored.new(first_name, last_name).
       number_of_amendments_cosponsored
   end
+
+  def parse
+    { bills_sponsored: bills_sponsored,
+      bills_cosponsored: bills_cosponsored,
+      amendments_sponsored: amendments_sponsored,
+      amendments_cosponsored: amendments_cosponsored
+    }
+  end
 end
