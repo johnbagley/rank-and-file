@@ -19,7 +19,7 @@ $(function () {
     plotOptions: {
         column: {
             dataLabels: {
-                enabled: true
+                enabled: true 
             }
         }
     },
@@ -27,7 +27,7 @@ $(function () {
       enabled: false
     },
     tooltip: {
-      enabled: true
+      enabled: false
       },
     title: {
       text: 'Amendments Sponsored'

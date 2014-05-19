@@ -28,7 +28,7 @@ $(function () {
       enabled: false
     },
     tooltip: {
-      enabled: true
+      enabled: false
       },
     title: {
       text: 'Amendments Co-Sponsored'

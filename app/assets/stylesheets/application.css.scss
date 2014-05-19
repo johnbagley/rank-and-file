@@ -17,15 +17,17 @@
 @import "bitters/bitters";
 @import "neat";
 
+#logo img {
+  max-height: 50px;
+  float:left;
+  padding-right: 40px;
+  vertical-align: bottom;
+}
+
 body {
   @include outer-container;
   @include clearfix;
   background-image:url("mocks/blurred_chamber.jpg");
-  // -webkit-filter: blur(5px);
-  // filter: blur(5px);
-  // -moz-filter: filter(5px);
-  // -o-filter: filter(5px);
-  // -ms-filter: filter(5px);
   box-shadow: 0px 0px 25px black;
   background-position: absolute;
   bottom: 5px;
@@ -39,6 +41,7 @@ body {
   background-repeat: repeat;
   color: white;
   padding: 15px;
+  height: 750px;
 }
 
 #search {
@@ -46,7 +49,7 @@ body {
   @include outer-container;
   @include span_columns(12);
   padding-top: 25px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 }
 
 #result {
@@ -149,12 +152,12 @@ body {
 //   font-weight: bold;
 //   line-height: 1em;}
 
-// #main-img {
-//   @include span-columns(8);
-//   @include shift(2);
-//   align: bottom;
-//   padding-bottom: 15px;
-// }
+#main-img {
+  @include span-columns(8);
+  @include shift(2);
+  align: bottom;
+  padding-bottom: 15px;
+}
 //
 // #member-pic{
 //   @include span_columns(3);

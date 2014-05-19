@@ -27,7 +27,7 @@ $(function () {
       enabled: false
     },
     tooltip: {
-      enabled: true
+      enabled: false
       },
     title: {
       text: 'Bills Sponsored'

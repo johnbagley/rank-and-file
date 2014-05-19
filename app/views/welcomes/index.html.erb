@@ -1,11 +1,12 @@
 <div id="wrapper">
   <div id="logo">
-    <h1>LOGO  See how your elected officials compare to the average.</h1>
+    <%= image_tag('mocks/logo.png') %>
+    <h1>Rank and File</h1>
   </div>
 
   <div id="search">
     <%= form_for :query, url: search_results_path, method: :get do |form| %>
-      <%= form.text_field :name, placeholder: 'Search for Member' %>
+      <%= form.text_field :name, placeholder: '"Elizabeth Warren"' %>
       <%= form.submit 'Search' %>
     <% end %>
   </div>
