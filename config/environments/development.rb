@@ -34,5 +34,5 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  config.action_controller.page_cache_directory = "#{Rails.root.to_s}/public/deploy"
+  config.action_controller.page_cache_directory = "#{Rails.root}/public/deploy"
 end
