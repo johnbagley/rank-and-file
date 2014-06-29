@@ -19,7 +19,8 @@ class AmendmentsCosponsored
   private
 
   def amendments_cosponsored_path
-    url = "http://beta.congress.gov/member?q=#{first_name}-#{last_name}"
+    url = "https://beta.congress.gov/search?q=%7B%22search%22%3A%22#{first_name}-#{last_name}%22%2C%22source%22%3A%22members%22%7D"
+    # url = "http://beta.congress.gov/member?q=#{first_name}-#{last_name}"
     amendments_cosponsored_path_doc = Nokogiri::HTML(open(url))
     member_with_member_number = amendments_cosponsored_path_doc.css('ul.results_list li h2 a')
     top_result = member_with_member_number[0].to_s
