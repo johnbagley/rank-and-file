@@ -12,14 +12,14 @@ class AmendmentsSponsored
   def number_of_amendments_sponsored
     number_of_amendments_sponsored_url = "#{amendments_sponsored_path}?q=%7B%22search%22%3A%5B%22#{first_name}+#{last_name}%22%5D%2C%22sponsorship%22%3A%22Sponsored+Legislation%22%2C%22type%22%3A%22amendments%22%2C%22chamber%22%3A%22Senate%22%7D"
     number_of_amendments_sponsored_doc = Nokogiri::HTML(open(number_of_amendments_sponsored_url))
-    scraped_data = number_of_amendments_sponsored_doc.css('#searchTune span').text
+    scraped_data = number_of_amendments_sponsored_doc.css('#searchTune span').text.strip
     /[\d,]+$/.match(scraped_data).to_s
   end
 
   private
 
   def amendments_sponsored_path
-    url = "http://beta.congress.gov/member?q=#{first_name}-#{last_name}"
+    url = "https://beta.congress.gov/member?q=#{first_name}-#{last_name}"
     amendments_sponsored_path_doc = Nokogiri::HTML(open(url))
     member_with_member_number = amendments_sponsored_path_doc.css('ul.results_list li h2 a')
     top_result = member_with_member_number[0].to_s
