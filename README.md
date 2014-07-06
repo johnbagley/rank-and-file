@@ -3,6 +3,8 @@ Rank and File
 
 Allows visitors to see how a sitting member of the United States Senate compares to their colleagues of the same tenure.
 
+![Image of Rank and File screenshot](http://johnbagley.github.io/screenshots/search_result.png)
+
 Benchmarks are based upon the number of bills sponsored, bills co-sponsored, amendments sponsored, and amendments co-sponsored.
 
 
