@@ -1,4 +1,5 @@
 class MemberResponseParser
+  include ActiveSupport::Inflector
   attr_accessor :govtrack_api_response, :govtrack_id
   SALARY = 174_000
 
@@ -26,11 +27,11 @@ class MemberResponseParser
   end
 
   def last_name
-    @govtrack_api_response['lastname']
+    transliterate(@govtrack_api_response['lastname'])
   end
 
   def first_name
-    @govtrack_api_response['firstname']
+    transliterate(@govtrack_api_response['firstname'])
   end
 
   def chamber
@@ -82,7 +83,7 @@ class MemberResponseParser
   end
 
   def year_of_start_date
-    start = Date.parse(start_date.min) || Data.parse(start_date)
+    start = Date.parse(start_date.min) || Date.parse(start_date)
     start.year
   end
 

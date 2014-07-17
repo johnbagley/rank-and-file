@@ -1,6 +1,7 @@
 # scrapes congress.gov for the number of bills sponsored by a member,
 # taking in their first and last name through string interpolation
 require 'open-uri'
+include ActiveSupport::Inflector
 class BillsSponsored
   attr_reader :first_name, :last_name
 
@@ -10,16 +11,16 @@ class BillsSponsored
   end
 
   def number_of_bills
-    number_of_bills_url = "#{number_of_bills_path}?q=%7B%22search%22%3A%5B%22#{first_name}+#{last_name}%22%5D%2C%22sponsorship%22%3A%22Sponsored+Legislation%22%2C%22type%22%3A%22bills%22%2C%22chamber%22%3A%22Senate%22%7D"
+    number_of_bills_url = transliterate("#{number_of_bills_path}?q=%7B%22search%22%3A%5B%22#{first_name}+#{last_name}%22%5D%2C%22sponsorship%22%3A%22Sponsored+Legislation%22%2C%22type%22%3A%22bills%22%2C%22chamber%22%3A%22Senate%22%7D")
     number_of_bills_doc = Nokogiri::HTML(open(number_of_bills_url))
     scraped_data = number_of_bills_doc.css('#searchTune span').text.strip
-    /[\d,]+$/.match(scraped_data).to_s
+    /[\d,]+$/.match(scraped_data).to_s.delete(',').to_i
   end
 
   private
 
   def number_of_bills_path
-    url = "https://beta.congress.gov/member?q=#{first_name}-#{last_name}"
+    url = transliterate("https://beta.congress.gov/member?q=#{first_name}-#{last_name}")
     number_of_bills_path = Nokogiri::HTML(open(url))
     member_with_member_number = number_of_bills_path.css('ul.results_list li h2 a')
     top_result = member_with_member_number[0].to_s

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140513204507) do
+ActiveRecord::Schema.define(version: 20140717153552) do
 
   create_table "members", force: true do |t|
     t.string   "first_name"
@@ -31,6 +31,10 @@ ActiveRecord::Schema.define(version: 20140513204507) do
     t.datetime "updated_at"
     t.string   "full_name"
     t.string   "state"
+    t.integer  "bills_sponsored",           default: 0
+    t.integer  "bills_cosponsored",         default: 0
+    t.integer  "amendments_sponsored",      default: 0
+    t.integer  "amendments_cosponsored",    default: 0
   end
 
 end

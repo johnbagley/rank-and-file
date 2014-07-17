@@ -6,7 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Member.destroy_all
+# Member.destroy_all
+
+include ActiveSupport::Inflector
 
 names = [
   'Lamar Alexander',
@@ -103,7 +105,7 @@ names = [
   'Mark Udall',
   'Tom Udall',
   'David Vitter',
-  # # 'John Walsh', #was having trouble loading this senator
+  # 'John Walsh', #same name as a Rep. returning wrong one
   'Mark Warner',
   'Elizabeth Warren',
   'Sheldon Whitehouse',
@@ -117,6 +119,3 @@ names.each do |name|
   Member.create(attributes)
 end
 
-names.each do |name|
-
-end
