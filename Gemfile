@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.1.1'
 gem 'better_errors'
 gem 'binding_of_caller'
 gem 'httparty'
@@ -8,6 +9,7 @@ gem 'nokogiri'
 gem 'actionpack-page_caching'
 gem 'rails', '4.1.0.rc2'
 gem 'pg'
+gem 'rails_12factor', group: :production
 gem 'sass-rails', '~> 4.0.2'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -20,7 +22,6 @@ gem 'spring',        group: :development
 gem 'bourbon'
 gem 'bitters'
 gem 'neat'
-
 group :development, :test do
   gem 'pry'
 end
