@@ -6,7 +6,6 @@ gem 'httparty'
 gem 'json'
 gem 'highcharts-rails', '~> 4.0.1'
 gem 'nokogiri'
-gem 'actionpack-page_caching'
 gem 'rails', '4.1.0.rc2'
 gem 'pg'
 gem 'rails_12factor', group: :production
