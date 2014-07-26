@@ -7,11 +7,13 @@ class SenatorURL
   end
 
   def scrape
+    links = []
     doc = Nokogiri::HTML(open('https://beta.congress.gov/members'))
     scraped = doc.css('#members-senators option').each do |link|
       strings = link.to_s.split('"')
-      puts strings[1]
+      links << strings[1]
     end
+    puts links
   end
 
 end
