@@ -1,8 +1,8 @@
 # scrapes congress.gov for the number of bills cosponsored by a member,
 # taking in their first and last name through string interpolation
 require 'open-uri'
-include ActiveSupport::Inflector
 class BillsCosponsored
+  include ActiveSupport::Inflector
   attr_reader :first_name, :last_name
 
   def initialize(first_name, last_name)
